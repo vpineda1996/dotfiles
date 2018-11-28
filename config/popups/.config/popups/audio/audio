@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Source term colors to use
+. $HOME/.local/bin/color-parser
+
+VOLUME_LEVEL=${pulseaudio-ctl full-status | cut -d" " -f1}
+
+
