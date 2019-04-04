@@ -106,6 +106,18 @@ activate() {
     source /opt/anaconda/bin/activate $1
 }
 
+movie_mode() {
+    opt=$1
+    if [[ $opt == on ]] ; then
+        xrandr --output HDMI-0 --off
+    elif [[ $opt == off ]]; then
+	xrandr --output HDMI-0 --left-of DP-4 --rotate left --auto
+    fi
+
+    barstart
+    nitrogen --restore
+}
+
 export PATH=$PATH:$HOME/.local/bin
 export ANDROID_HOME=/opt/android-sdk
 

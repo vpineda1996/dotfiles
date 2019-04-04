@@ -8,13 +8,15 @@ while pgrep -x polybar >/dev/null; do sleep 2; done
 # Launch top bar
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    WIDTH=$(xrandr -q | grep " connected" | grep $m | grep -oh "[0-9]\{4\}" | head -1) MONITOR=$m polybar top &
+    WIDTH=$(xrandr -q | grep " connected" | grep $m | grep -oh "[0-9]\{4\}" |
+            head -1) MONITOR=$m polybar main  &
   done
 else
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    WIDTH=$(xrandr -q | grep " connected" | grep $m | grep -oh "[0-9]\{4\}" | head -1) MONITOR=$m polybar top --reload &
+    WIDTH=$(xrandr -q | grep " connected" | grep $m | grep -oh "[0-9]\{4\}" |
+            head -1) MONITOR=$m polybar main --reload &
   done
 fi 
 #polybar top 2> /dev/null &
 sleep 2
-polybar bottom 2> /dev/null &
+#polybar bottom 2> /dev/null &
