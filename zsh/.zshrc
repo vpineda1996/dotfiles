@@ -89,8 +89,6 @@ export EDITOR="$VISUAL"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias dispoff="xset dpms force off"
-
 
 getaur() {
   cd ~/install
@@ -127,3 +125,6 @@ PERL_LOCAL_LIB_ROOT="/home/vpineda1996/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL
 PERL_MB_OPT="--install_base \"/home/vpineda1996/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/vpineda1996/perl5"; export PERL_MM_OPT;
 
+if [ -f ~/.aliases ]; then
+   . ./.aliases
+fi

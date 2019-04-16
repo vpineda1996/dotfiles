@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-killall -q polybar
-
+kill -9 $(ps ux | grep "polybar main" | awk '{ print $2 }')
 
 while pgrep -x polybar >/dev/null; do sleep 2; done
 

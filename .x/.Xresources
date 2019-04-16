@@ -19,3 +19,6 @@ Xft.rgba:               rgb
 Xft.hinting:            true
 Xft.lcdfilter:          lcddefault
 Xft.hintstyle:          hintsfull
+
+#!Colors
+#include "/home/vpineda1996/.colors/pure"

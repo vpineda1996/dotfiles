@@ -1,0 +1,7 @@
+alias dispoff="xset dpms force off"
+alias open="xdg-open $@"
+alias i3config="vim ~/.config/i3/config"
+alias polybarconfig="vim ~/.config/polybar"
+
+
+# vim: ai ts=2 sw=2 et sts=2 ft=sh

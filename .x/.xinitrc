@@ -20,7 +20,6 @@ nitrogen --restore  &                             # restore wallpaper
 compton --config ~/.compton.conf -b &
 dunst -config $HOME/.config/dunst/dunstrc &  
 xrdb -load -I$HOME ~/.Xresources
-. $HOME/.local/bin/urxvt_daemon &                 # urxvt daemon
 autocutsel -fork                                  # copy-paste mech
 
 exec i3

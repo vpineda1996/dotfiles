@@ -21,7 +21,9 @@ bindsym $mod+Shift+Escape exec i3-msg exit
 
 # Start Rofi (a program launcher, ssh, window switcher)
 # https://davedavenport.github.io/rofi/
-bindsym $mod+d exec --no-startup-id PATH=$PATH:$HOME/.local/bin rofi -show run
+bindsym $mod+d exec --no-startup-id "PATH=$PATH:$HOME/.local/bin rofi -modi \
+   run,drun,window -lines 10 -padding 20 -width 50 -show drun -sidebar-mode \
+   -columns 1 -font 'Fantasque Sans Mono 10'"
 
 # Change focus
 #bindsym $mod+j focus left
@@ -273,10 +275,10 @@ set_from_resource $white       color15 #000000
 #set $darkblack #ddd9cd
 
 # Window colors           border      background   text            indicator    child_border
-client.focused            $blue       $blue        $white          $darkblack  $darkblack
+client.focused            $darkblue   $darkblue    $white          $darkblack  $darkblack
 client.focused_inactive   $darkblack  $darkblack   $white          $darkblack  $darkblack
-client.unfocused          $yellow     $yellow      $white          $darkblack  $darkblack
-client.urgent             $darkblack  $darkblack   $white          $darkblack  $darkblack
+client.unfocused          $darkblack  $darkblack   $white          $darkblack  $darkblack
+client.urgent             $darkred    $darkred     $white          $darkblack  $darkblack
 
 #Start i3bar to display a workspace bar
 #Uncomment to use the default i3bar status
@@ -303,8 +305,8 @@ client.urgent             $darkblack  $darkblack   $white          $darkblack  $
 
 # Fancy title bar
 font pango:lemon 18
-#for_window [class=".*"] title_format "<span font='tewi 8'> ➤ %title</span>"
-for_window [class=".*"] title_format "<span font='tewi 8'> </span>"
+for_window [class=".*"] title_format "<span font='tewi 8'> ➤ %title%</span>"
+#for_window [class=".*"] title_format "<span font='tewi 8'> </span>"
 
 
 #************  Startup apps ***********************
@@ -321,11 +323,8 @@ for_window [class="^.*"] border pixel 1
 #for_window [class="(?i)urxvt"] border normal 0
 
 # Enable or disable floating
-for_window [class="Arandr"] floating enable
-for_window [class="Lxappearance"] floating enable
 for_window [class="Nitrogen"] floating enable
-for_window [class="Artha"] floating enable
-for_window [instance="dukto"] floating enable
+for_window [class="Nautilus"] floating enable
 for_window [class="feh"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
@@ -335,8 +334,8 @@ for_window [class="Pavucontrol"] floating enable
 
 # Starting apps on a specific workspace
 assign [class="^Tor Browser$"]           $w1
-assign [class="^Chrome$"]                $w1
-assign [class="^Luakit$"]                $w1
+assign [class="^google-chrome$"]         $w1
+assign [class="^Code$"]                  $w4
 assign [class="^Zathura"]                $w3
 assign [class="^mpv$"]                   $w4
 assign [class="^VirtualBox$"]            $w7
